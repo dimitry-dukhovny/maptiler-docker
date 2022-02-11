@@ -1,0 +1,14 @@
+[Unit]
+Description=SSL/TLS wrapper
+Documentation=man:stunnel https://www.stunnel.org/docs.html
+DefaultDependencies=no
+After=network.target
+After=syslog.target
+
+[Install]
+WantedBy=multi-user.target
+Alias=stunnel.target
+
+[Service]
+Type=forking
+ExecStart=/bin/stunnel /etc/stunnel/stunnel.conf
