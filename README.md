@@ -3,7 +3,14 @@ Docker-compose YML and systemd unit file for tileserver-gl instance
 
 The tilesever-gl code is in https://github.com/maptiler/tileserver-gl/ and is worth understanding.
 
-## Do it yourself
+## Using the install script
+```bash
+git clone https://github.com/dimitry-dukhovny/maptiler-docker
+cd maptiler-docker
+bash install.sh
+```
+
+## Doing it yourself
 * Get a certificate from Letsencrypt
 * Into */usr/lib/systemd/system* put...
   * *docker-maptiler.service*
@@ -21,13 +28,6 @@ The tilesever-gl code is in https://github.com/maptiler/tileserver-gl/ and is wo
 `systemd enable stunnel docker-maptiler`
 * Start your unit files
 `systemd start stunnel docker-maptiler`
-
-## Use the install script
-```bash
-git clone https://github.com/dimitry-dukhovny/maptiler-docker
-cd maptiler-docker
-bash install.sh
-```
 
 ## Fetching Maps
 You can get free maps from these folks or from any OSM source.
