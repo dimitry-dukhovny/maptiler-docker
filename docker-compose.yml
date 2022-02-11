@@ -1,0 +1,15 @@
+version: '2'
+services:
+    tileserver:
+        restart: always
+        image: maptiler/tileserver-gl
+        container_name: maptiler
+        privileged: false
+        ports:
+            - 8080:8080
+        volumes:
+            - /data/map:/data
+        command:
+            - "--verbose"
+            - "--mbtiles"
+            - "maptiler-osm-2017-07-03-v3.6.1-planet.mbtiles"
