@@ -1,0 +1,19 @@
+[Unit]
+Description=Container for maps
+Documentation=https://github.com/maptiler/tileserver-gl
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+User=svc.map
+Group=docker
+RemainAfterExit=true
+StandardOutput=journal
+WorkingDirectory=/data/map/bin
+ExecStart=/bin/docker-compose up -d --remove-orphans
+ExecStop=/bin/docker-compose down
+
+
+[Install]
+WantedBy=multi-user.target
